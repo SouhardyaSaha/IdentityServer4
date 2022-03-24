@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-[Authorize]
+[Route("[controller]"), Authorize]
+// [Authorize]
 public class IdentityController : ControllerBase
 {
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok("OK");
+        return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
     }
 }

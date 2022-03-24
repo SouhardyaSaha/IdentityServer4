@@ -22,6 +22,15 @@ public static class ApplicationServiceExtensions
                     ValidateAudience = false
                 };
             });
+        
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("ApiScope", policy =>
+            {
+                policy.RequireAuthenticatedUser();
+                policy.RequireClaim("scope", "api12");
+            });
+        });
 
         return services;
     }
