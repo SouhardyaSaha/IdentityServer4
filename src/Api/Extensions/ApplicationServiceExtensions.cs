@@ -28,7 +28,7 @@ public static class ApplicationServiceExtensions
             options.AddPolicy("ApiScope", policy =>
             {
                 policy.RequireAuthenticatedUser();
-                policy.RequireClaim("scope", "api12");
+                policy.RequireClaim("scope", "api1");
             });
         });
 
