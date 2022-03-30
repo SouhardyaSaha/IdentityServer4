@@ -13,12 +13,13 @@ public static class ApplicationServiceExtensions
             .AddJwtBearer(options =>
             {
                 options.Authority = "https://localhost:5001";
+                // options.Audience = "";
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"])),
-                    ValidIssuer = config["Token:Issuer"],
-                    ValidateIssuer = true,
+                    // ValidateIssuerSigningKey = true,
+                    // IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token:Key"])),
+                    // ValidIssuer = config["Token:Issuer"],
+                    // ValidateIssuer = true,
                     ValidateAudience = false
                 };
             });
